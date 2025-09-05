@@ -1,0 +1,206 @@
+<!--
+Filename: Methri_Vaishnavi_portfolio.html
+How to use:
+1. Copy this file into the root of a GitHub repo (e.g. repo name: vaishnavi-methri-portfolio).
+2. Add your resume as "resume.pdf" in the same repo (or update the href in the "Download Resume" link).
+3. Enable GitHub Pages in repository settings (branch: main, folder: root). Your site will be published at https://<username>.github.io/<repo-name>/ or https://<username>.github.io if repo named <username>.github.io
+4. Edit the content (projects, links, text) directly in this file to personalize further.
+
+This is a single-file responsive portfolio built with semantic HTML, CSS (no external dependencies), and a tiny bit of JS for mobile nav.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Methri Vaishnavi — Portfolio</title>
+  <meta name="description" content="Portfolio of Methri Vaishnavi — B.Tech CSE Student, Cybersecurity & AI/ML enthusiast" />
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#7dd3fc;--glass:rgba(255,255,255,0.03)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#071021 0%, #051027 100%);color:#e6eef6;line-height:1.5}
+    .container{max-width:1000px;margin:36px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .avatar{width:68px;height:68px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;color:#04263b;font-weight:700;font-size:22px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px}
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:28px;align-items:center}
+    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
+    h1{margin:0;font-size:28px}
+    h2{margin:6px 0 16px;font-size:18px}
+    p.lead{color:var(--muted);margin:12px 0}
+    .cta{display:flex;gap:10px;margin-top:16px}
+    .btn{padding:10px 14px;border-radius:10px;background:var(--accent);color:#04263b;font-weight:600;text-decoration:none}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:8px;color:var(--muted);font-size:13px}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .project{padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.02)}
+    .meta{color:var(--muted);font-size:13px}
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    ul{padding-left:18px}
+    @media(max-width:880px){
+      .hero{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="avatar">MV</div>
+        <div>
+          <div style="font-weight:700">Methri Vaishnavi</div>
+          <div style="color:var(--muted);font-size:13px">B.Tech (CSE) — 3rd Year • Hyderabad, India</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h1>Hi — I'm Methri Vaishnavi</h1>
+        <h2>3rd Year B.Tech Student • Software Developer • Cybersecurity & AI/ML Enthusiast</h2>
+        <p class="lead">Motivated and detail-oriented Computer Science student with hands-on experience in machine learning, web development, and cybersecurity. Currently pursuing B.Tech (2024–2027) at Malla Reddy Engineering College for Women.</p>
+        <div class="cta">
+          <a class="btn" href="resume.pdf" download>Download Resume</a>
+          <a class="btn-outline" href="https://github.com/Vaishnavi-methri" target="_blank">View GitHub</a>
+        </div>
+
+        <hr style="margin:18px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+        <div id="skills">
+          <strong style="color:var(--muted)">Top Skills</strong>
+          <div class="skills" style="margin-top:8px">
+            <div class="chip">Python</div>
+            <div class="chip">Java</div>
+            <div class="chip">C</div>
+            <div class="chip">HTML/CSS/JS</div>
+            <div class="chip">React</div>
+            <div class="chip">Node.js</div>
+            <div class="chip">LightGBM</div>
+            <div class="chip">OpenCV</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div>
+            <strong>Education</strong>
+            <div class="meta">B.Tech - Malla Reddy Engineering College for Women (2024–2027) • GPA: 84%</div>
+            <div class="meta">Diploma - Kamala Nehru Polytechnic for Women (2021–2024) • 80%</div>
+          </div>
+
+          <div>
+            <strong>Certifications</strong>
+            <ul style="margin:8px 0 0;color:var(--muted);font-size:13px">
+              <li>Data Foundation & AI — Oracle</li>
+              <li>Cyber Security Essentials, Network Basics — Cisco</li>
+              <li>Programming (Python/Java/Linux/Data Science) — NSIC TSC</li>
+              <li>GenAI — TATA, Data Analytics — Deloitte (Forage)</li>
+            </ul>
+          </div>
+
+          <div>
+            <strong>Contact</strong>
+            <div class="meta">Email: <a href="mailto:vaishnavimethri@gmail.com">vaishnavimethri@gmail.com</a></div>
+            <div class="meta">LinkedIn: <a href="https://linkedin.com/in/methri-vaishnavi" target="_blank">linkedin.com/in/methri-vaishnavi</a></div>
+            <div class="meta">GitHub: <a href="https://github.com/Vaishnavi-methri" target="_blank">github.com/Vaishnavi-methri</a></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" style="margin-top:20px">
+      <div class="card">
+        <h2>About Me</h2>
+        <p style="color:var(--muted)">I am a passionate Computer Science student focused on building software that solves real problems. I enjoy working on machine learning projects, full-stack web applications, and cybersecurity tasks. I aim to secure internships to gain hands-on experience and contribute to meaningful projects.</p>
+      </div>
+    </section>
+
+    <section id="projects" style="margin-top:18px">
+      <h2 style="margin-bottom:12px">Projects</h2>
+      <div class="projects">
+        <div class="project card">
+          <h3>Fake News Detection</h3>
+          <div class="meta">Python • Machine Learning • Accuracy: 90%</div>
+          <p style="color:var(--muted);margin-top:8px">Built a classifier to detect fake news using NLP preprocessing and machine learning models. Achieved ~90% accuracy on test data.</p>
+          <a href="https://github.com/Vaishnavi-methri" target="_blank" class="meta">View repo</a>
+        </div>
+
+        <div class="project card">
+          <h3>Barcode Technology System</h3>
+          <div class="meta">Python • Inventory Management</div>
+          <p style="color:var(--muted);margin-top:8px">Developed a system to generate and read barcodes for efficient inventory tracking and management.</p>
+          <a href="https://github.com/Vaishnavi-methri" target="_blank" class="meta">View repo</a>
+        </div>
+
+        <div class="project card">
+          <h3>Predicting Coronary Heart Disease</h3>
+          <div class="meta">LightGBM • Data Science</div>
+          <p style="color:var(--muted);margin-top:8px">Used LightGBM on medical datasets to predict heart disease risk, improving predictive performance with feature engineering.</p>
+          <a href="https://github.com/Vaishnavi-methri" target="_blank" class="meta">View repo</a>
+        </div>
+
+        <div class="project card">
+          <h3>Gesture-Based HCI</h3>
+          <div class="meta">OpenCV • Accessibility</div>
+          <p style="color:var(--muted);margin-top:8px">Created a system controlled by hand gestures to interact with applications—useful for accessibility and touch-free control.</p>
+          <a href="https://github.com/Vaishnavi-methri" target="_blank" class="meta">View repo</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top:18px">
+      <div class="card two-col">
+        <div>
+          <h3>Skills & Tools</h3>
+          <ul style="color:var(--muted)">
+            <li>Languages: Python, Java, C</li>
+            <li>Web: HTML, CSS, JavaScript, React, Node.js</li>
+            <li>ML & Data: Pandas, scikit-learn, LightGBM</li>
+            <li>Computer Vision: OpenCV</li>
+            <li>Cybersecurity Basics: Packet Tracer, Network Basics</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Strengths</h3>
+          <ul style="color:var(--muted)">
+            <li>Self-motivated and eager to learn</li>
+            <li>Adaptability and strong teamwork skills</li>
+            <li>Creative problem-solving</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px">
+      <div class="card">
+        <h2>Contact</h2>
+        <p style="color:var(--muted)">I'm open to internship opportunities and collaboration. Reach out via email or LinkedIn.</p>
+        <p style="margin-top:8px"><strong>Email:</strong> <a href="mailto:vaishnavimethri@gmail.com">vaishnavimethri@gmail.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/methri-vaishnavi" target="_blank">linkedin.com/in/methri-vaishnavi</a></p>
+      </div>
+    </section>
+
+    <footer>
+      Built with ❤️ • © Methri Vaishnavi • <span style="color:var(--muted)">2025</span>
+    </footer>
+  </div>
+
+  <script>
+    // small JS to enhance mobile nav in future (placeholder)
+    // you can expand this for a hamburger menu if desired
+  </script>
+</body>
+</html>
