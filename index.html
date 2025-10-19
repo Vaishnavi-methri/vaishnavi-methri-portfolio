@@ -6,90 +6,123 @@
   <title>Methri Vaishnavi — Portfolio</title>
   <meta name="description" content="Portfolio of Methri Vaishnavi — B.Tech CSE Student, Cybersecurity & AI/ML enthusiast" />
   <style>
+    /* ===== Variables & Reset ===== */
     :root{
-      --bg:#fdfbfb;
-      --card:#ffffffc9;
-      --muted:#475569;
-      --accent:#60a5fa;
-      --glass:rgba(255,255,255,0.7)
+      --bg1: #fffafe;
+      --bg2: #f0f9ff;
+      --accent: #60a5fa;
+      --accent-2: #c4b5fd;
+      --card: rgba(255,255,255,0.9);
+      --muted: #475569;
+      --text: #0f1724;
+      --glass: rgba(255,255,255,0.7);
+      --shadow: 0 8px 24px rgba(15,23,42,0.08);
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
     body{
-      margin:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
-      background:linear-gradient(135deg,#fefeff,#e3f2fd,#fce7f3);
-      color:#1e293b;
-      line-height:1.6;
-      overflow-x:hidden;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.55;
     }
-    .container{max-width:1000px;margin:36px auto;padding:24px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
+
+    .wrapper{max-width:1100px;margin:28px auto;padding:20px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:14px}
     .avatar{
-      width:68px;height:68px;border-radius:12px;
-      background:linear-gradient(135deg,var(--accent),#93c5fd);
-      display:flex;align-items:center;justify-content:center;
-      color:white;font-weight:700;font-size:22px;
+      width:82px;height:82px;border-radius:14px;overflow:hidden;flex-shrink:0;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:22px;
+      box-shadow:var(--shadow);
     }
-    nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-weight:500}
-    nav a:hover{color:#2563eb}
-    .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:28px;align-items:center}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .name{font-weight:700;font-size:1.25rem}
+    .sub{color:var(--muted);font-size:0.95rem;margin-top:4px}
+
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px;border-radius:8px}
+    nav a:hover{color:var(--text);background:transparent;box-shadow:inset 0 -2px 0 rgba(0,0,0,0.03)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 340px;gap:24px;margin-top:22px;align-items:start}
     .card{
-      background:var(--card);
-      padding:20px;border-radius:12px;
-      box-shadow:0 4px 14px rgba(0,0,0,0.08);
-      border:1px solid rgba(0,0,0,0.05);
-      backdrop-filter:blur(12px);
+      background:var(--card);border-radius:14px;padding:20px;box-shadow:var(--shadow);
+      border:1px solid rgba(2,6,23,0.04);
+      opacity:0;transform:translateY(12px);transition:all 550ms cubic-bezier(.2,.9,.2,1);
     }
-    h1{margin:0;font-size:28px;color:#1e3a8a}
-    h2{margin:6px 0 16px;font-size:18px;color:#2563eb}
-    p.lead{color:var(--muted);margin:12px 0}
-    .cta{display:flex;gap:10px;margin-top:16px}
+    .card.visible{opacity:1;transform:translateY(0)}
+    h1{font-size:1.6rem;color:var(--text);margin-bottom:4px}
+    h2{font-size:1rem;color:var(--accent);margin-bottom:12px;font-weight:600}
+    p.lead{color:var(--muted);margin-bottom:12px}
+
+    .cta{display:flex;gap:10px;margin-top:12px}
     .btn{
-      padding:10px 14px;border-radius:10px;
-      background:var(--accent);color:white;
-      font-weight:600;text-decoration:none;
+      display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(96,165,250,0.18)
     }
-    .btn-outline{
-      background:transparent;border:1px solid #94a3b8;
-      color:#475569;
+    .btn.secondary{
+      background:transparent;color:var(--text);border:1px solid rgba(15,23,42,0.06);font-weight:600
     }
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{
-      background:var(--glass);
-      padding:8px 10px;border-radius:8px;
-      color:#475569;font-size:13px;
-    }
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-    .project{
-      padding:14px;border-radius:10px;
-      background:linear-gradient(180deg,#ffffff,#f0f9ff);
-      border:1px solid #e2e8f0;
-      box-shadow:0 3px 10px rgba(0,0,0,0.05);
-    }
-    .meta{color:var(--muted);font-size:13px}
-    footer{margin-top:28px;text-align:center;color:#64748b;font-size:13px}
+
+    .divider{height:1px;background:linear-gradient(90deg,transparent,#e6eef6,transparent);margin:16px 0;border-radius:2px}
+
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .chip{background:var(--glass);padding:8px 10px;border-radius:10px;color:var(--muted);font-size:13px}
+
+    /* Aside */
+    aside .meta{font-size:0.95rem;color:var(--muted);margin-top:6px}
+
+    /* Sections */
+    section.wrap{margin-top:22px}
+    section.wrap h2{font-size:1.1rem;color:var(--accent);margin-bottom:10px;border-left:4px solid var(--accent);padding-left:10px}
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:12px}
+    .project-card{background:linear-gradient(180deg,#fff,#f8fdff);padding:14px;border-radius:10px;border:1px solid #e6f0ff;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+    .project-card h3{margin-bottom:6px;color:#0b4aa6}
+    .meta.small{color:var(--muted);font-size:13px;margin-bottom:8px}
+
+    /* two-column box */
     .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    ul{padding-left:18px}
-    @media(max-width:880px){
+    ul{padding-left:18px;color:var(--muted)}
+
+    /* Contact */
+    .contact p{margin-bottom:6px;color:var(--muted);font-size:0.98rem}
+
+    /* Footer */
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px;padding:12px 0}
+
+    /* Responsive */
+    @media (max-width:980px){
       .hero{grid-template-columns:1fr}
-      .projects{grid-template-columns:1fr}
-      .two-col{grid-template-columns:1fr}
       nav{display:none}
+      .avatar{width:72px;height:72px}
+    }
+    @media (max-width:520px){
+      .wrapper{padding:14px}
+      .avatar{width:64px;height:64px}
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrapper">
     <header>
-      <div class="brand">
-        <div class="avatar">MV</div>
+      <div class="brand" aria-hidden="false">
+        <div class="avatar" title="Profile">
+          <!-- Replace 'profile.jpg' with your own image; if not present, this area shows gradient initials. -->
+          <img id="profileImg" src="profile.jpg" alt="Profile photo" onerror="this.style.display='none'">
+          <div id="initials" style="display:none">MV</div>
+        </div>
         <div>
-          <div style="font-weight:700">Methri Vaishnavi</div>
-          <div style="color:var(--muted);font-size:13px">B.Tech (CSE) — 3rd Year • Hyderabad, India</div>
+          <div class="name">Methri Vaishnavi</div>
+          <div class="sub">B.Tech (CSE) — 3rd Year • Hyderabad, India</div>
         </div>
       </div>
-      <nav>
+
+      <nav aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#internship">Internship</a>
@@ -98,141 +131,172 @@
       </nav>
     </header>
 
-    <section class="hero">
-      <div class="card">
+    <!-- Hero -->
+    <div class="hero">
+      <div class="card" data-animate>
         <h1>Hi — I'm Methri Vaishnavi</h1>
-        <h2>3rd Year B.Tech Student • Software Developer • Cybersecurity & AI/ML Enthusiast</h2>
-        <p class="lead">
-          Motivated and detail-oriented Computer Science student with hands-on experience in machine learning, web development, and cybersecurity. Currently pursuing B.Tech (2024–2027) at Malla Reddy Engineering College for Women.
-        </p>
+        <h2>Software Developer • Cybersecurity & AI/ML Enthusiast</h2>
+        <p class="lead">Motivated and detail-oriented Computer Science student seeking an international internship opportunity to apply skills in software development and AI/ML. Eager to contribute to impactful projects and grow professionally in a dynamic environment.</p>
+
         <div class="cta">
           <a class="btn" href="resume.pdf" download>Download Resume</a>
-          <a class="btn-outline" href="https://github.com/Vaishnavi-methri" target="_blank">View GitHub</a>
+          <a class="btn secondary" href="https://github.com/Vaishnavi-methri" target="_blank" rel="noopener">View GitHub</a>
         </div>
 
-        <hr style="margin:18px 0;border:none;border-top:1px solid #e2e8f0" />
-        <div id="skills">
-          <strong style="color:#2563eb">Top Skills</strong>
-          <div class="skills" style="margin-top:8px">
-            <div class="chip">Python</div>
-            <div class="chip">Java</div>
-            <div class="chip">C</div>
-            <div class="chip">HTML/CSS/JS</div>
-            <div class="chip">React</div>
-            <div class="chip">Node.js</div>
-            <div class="chip">LightGBM</div>
-            <div class="chip">OpenCV</div>
+        <div class="divider" aria-hidden="true"></div>
+
+        <div id="skills" aria-labelledby="skills-heading">
+          <strong style="color:var(--text)">Top Skills</strong>
+          <div class="chips" style="margin-top:8px">
+            <span class="chip">Python</span>
+            <span class="chip">Java</span>
+            <span class="chip">C</span>
+            <span class="chip">HTML/CSS/JS</span>
+            <span class="chip">React</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">LightGBM</span>
+            <span class="chip">OpenCV</span>
           </div>
         </div>
       </div>
 
-      <aside class="card">
-        <div style="display:flex;flex-direction:column;gap:12px">
+      <aside class="card" data-animate>
+        <div>
           <div>
             <strong>Education</strong>
-            <div class="meta">B.Tech - Malla Reddy Engineering College for Women (2024–2027) • GPA: 84%</div>
-            <div class="meta">Diploma - Kamala Nehru Polytechnic for Women (2021–2024) • 80%</div>
+            <div class="meta">B.Tech — Malla Reddy Engineering College for Women (2024–2027) • GPA: 84%</div>
+            <div class="meta" style="margin-top:6px">Diploma — Kamala Nehru Polytechnic for Women (2021–2024) • 80%</div>
+            <div class="meta" style="margin-top:6px">Secondary — Z.P.H.S (2021) • CGPA: 10/10</div>
           </div>
 
-          <div>
+          <div style="margin-top:12px">
             <strong>Certifications</strong>
-            <ul style="margin:8px 0 0;color:var(--muted);font-size:13px">
-              <li>Data Foundation & AI — Oracle</li>
-              <li>Cyber Security Essentials, Network Basics — Cisco</li>
-              <li>Programming (Python/Java/Linux/Data Science) — NSIC TSC</li>
-              <li>GenAI — TATA, Data Analytics — Deloitte (Forage)</li>
+            <ul style="margin-top:8px">
+              <li>Programming in Python, Java, Linux, Data Science — NSIC TSC</li>
+              <li>Data Foundation & AI, DevOps — Oracle</li>
+              <li>Cyber Security Essentials, Network Basics, JavaScript Essential — Cisco</li>
+              <li>HP Life — AI for Business Professional</li>
+              <li>GenAI — TATA | Data Analytics — Deloitte (Forage) | Infosys (C/Java/Python)</li>
             </ul>
           </div>
 
-          <div>
+          <div style="margin-top:12px">
             <strong>Contact</strong>
             <div class="meta">Email: <a href="mailto:vaishnavimethri@gmail.com">vaishnavimethri@gmail.com</a></div>
-            <div class="meta">LinkedIn: <a href="https://linkedin.com/in/methri-vaishnavi" target="_blank">linkedin.com/in/methri-vaishnavi</a></div>
-            <div class="meta">GitHub: <a href="https://github.com/Vaishnavi-methri" target="_blank">github.com/Vaishnavi-methri</a></div>
+            <div class="meta">LinkedIn: <a href="https://linkedin.com/in/methri-vaishnavi" target="_blank" rel="noopener">linkedin.com/in/methri-vaishnavi</a></div>
+            <div class="meta">GitHub: <a href="https://github.com/Vaishnavi-methri" target="_blank" rel="noopener">github.com/Vaishnavi-methri</a></div>
           </div>
         </div>
       </aside>
+    </div>
+
+    <!-- About -->
+    <section id="about" class="wrap card" data-animate>
+      <h2>About Me</h2>
+      <p style="color:var(--muted)">I am a passionate Computer Science student focused on building software that solves real problems. I enjoy working on machine learning projects, full-stack web applications, and cybersecurity tasks. I aim to secure internships to gain hands-on experience and contribute to meaningful projects.</p>
     </section>
 
-    <section id="about" style="margin-top:20px">
-      <div class="card">
-        <h2>About Me</h2>
-        <p style="color:var(--muted)">
-          I am a passionate Computer Science student focused on building software that solves real problems. I enjoy working on machine learning projects, full-stack web applications, and cybersecurity tasks. I aim to secure internships to gain hands-on experience and contribute to meaningful projects.
-        </p>
-      </div>
-    </section>
-
-    <section id="projects" style="margin-top:18px">
-      <h2 style="margin-bottom:12px">Projects</h2>
-      <div class="projects">
-        <div class="project">
+    <!-- Projects -->
+    <section id="projects" class="wrap" aria-labelledby="projects-heading">
+      <h2>Projects</h2>
+      <div class="projects" style="margin-top:10px">
+        <article class="project-card" data-animate>
           <h3>Fake News Detection</h3>
-          <div class="meta">Python • Machine Learning • Accuracy: 90%</div>
-          <p>Built a classifier to detect fake news using NLP preprocessing and machine learning models. Achieved ~90% accuracy.</p>
-        </div>
+          <div class="meta small">Python • Machine Learning • Accuracy: 90%</div>
+          <p>Built a classifier to detect fake news using NLP preprocessing, feature engineering and ML models. Achieved ~90% accuracy.</p>
+          <a class="meta small" href="https://github.com/Vaishnavi-methri" target="_blank" rel="noopener">View repo</a>
+        </article>
 
-        <div class="project">
-          <h3>Barcode Technology System</h3>
-          <div class="meta">Python • Inventory Management</div>
-          <p>Developed a system to generate and read barcodes for efficient inventory tracking and management.</p>
-        </div>
-
-        <div class="project">
+        <article class="project-card" data-animate>
           <h3>Predicting Coronary Heart Disease</h3>
-          <div class="meta">LightGBM • Data Science</div>
+          <div class="meta small">LightGBM • Data Science</div>
           <p>Used LightGBM on medical datasets to predict heart disease risk with improved accuracy using feature engineering.</p>
-        </div>
+          <a class="meta small" href="https://github.com/Vaishnavi-methri" target="_blank" rel="noopener">View repo</a>
+        </article>
 
-        <div class="project">
-          <h3>Gesture-Based HCI</h3>
-          <div class="meta">OpenCV • Accessibility</div>
+        <article class="project-card" data-animate>
+          <h3>Gesture-Based Human-Computer Interaction</h3>
+          <div class="meta small">OpenCV • Accessibility</div>
           <p>Created a system controlled by hand gestures to interact with applications—useful for accessibility and touch-free control.</p>
-        </div>
+          <a class="meta small" href="https://github.com/Vaishnavi-methri" target="_blank" rel="noopener">View repo</a>
+        </article>
+
+        <article class="project-card" data-animate>
+          <h3>Barcode Technology System</h3>
+          <div class="meta small">Python • Inventory Management</div>
+          <p>Developed a system to generate and read barcodes for efficient inventory tracking and management.</p>
+          <a class="meta small" href="https://github.com/Vaishnavi-methri" target="_blank" rel="noopener">View repo</a>
+        </article>
       </div>
     </section>
 
-    <!-- NEW INTERNSHIP SECTION -->
-    <section id="internship" style="margin-top:18px">
-      <div class="card">
-        <h2>Internship</h2>
-        <p><strong>AICTE Virtual Internship – Artificial Intelligence & Data Analytics (Green Skills)</strong></p>
-        <p>25th Aug – 25th Sept 2025 | Organized by AICTE, Shell India & Edunet Foundation under the Skills4Future Program.</p>
-        <p style="color:var(--muted)">Developed real-world AI/ML and analytics skills while contributing to projects promoting sustainable technology practices.</p>
-      </div>
+    <!-- Internship -->
+    <section id="internship" class="wrap card" data-animate>
+      <h2>Internship</h2>
+      <p><strong>AICTE Virtual Internship – Artificial Intelligence & Data Analytics (Green Skills)</strong></p>
+      <p>25th Aug – 25th Sept 2025 | Organized by AICTE, Shell India Markets Pvt Ltd, and Edunet Foundation under the Skills4Future program.</p>
+      <p style="color:var(--muted)">Developed practical AI/ML and analytics skills while contributing to projects focused on sustainable technology practices.</p>
     </section>
 
-    <section style="margin-top:18px">
-      <div class="card two-col">
+    <!-- Skills & Strengths -->
+    <section class="wrap">
+      <div class="card two-col" data-animate>
         <div>
           <h3>Skills & Tools</h3>
-          <ul style="color:var(--muted)">
+          <ul>
             <li>Languages: Python, Java, C</li>
-            <li>Web: HTML, CSS, JavaScript, React, Node.js</li>
-            <li>ML & Data: Pandas, scikit-learn, LightGBM</li>
-            <li>Computer Vision: OpenCV</li>
-            <li>Cybersecurity: Packet Tracer, Network Basics</li>
+            <li>Web: HTML, CSS, JavaScript, React</li>
+            <li>ML & Data: Pandas, scikit-learn,</li>
           </ul>
         </div>
         <div>
           <h3>Strengths</h3>
-          <ul style="color:var(--muted)">
-            <li>Self-motivated and eager to learn</li>
-            <li>Adaptability and teamwork</li>
-            <li>Creative problem-solving</li>
+          <ul>
+            <li>Self-motivated and eager to learn new technologies</li>
+            <li>Adaptability and collaborative mindset</li>
+            <li>Creative and efficient problem-solving abilities</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="contact" style="margin-top:18px">
-      <div class="card">
-        <h2>Contact</h2>
-        <p>I'm open to internship opportunities and collaborations. Reach out via email or LinkedIn.</p>
+    <!-- Contact -->
+    <section id="contact" class="wrap card" data-animate>
+      <h2>Contact</h2>
+      <p>I'm open to internship opportunities and collaborations. Reach out via email or LinkedIn.</p>
+      <div class="contact" style="margin-top:10px">
         <p><strong>Email:</strong> <a href="mailto:vaishnavimethri@gmail.com">vaishnavimethri@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/methri-vaishnavi" target="_blank">linkedin.com/in/methri-vaishnavi</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/methri-vaishnavi" target="_blank" rel="noopener">linkedin.com/in/methri-vaishnavi</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/Vaishnavi-methri" target="_blank" rel="noopener">github.com/Vaishnavi-methri</a></p>
       </div>
     </section>
   </div>
+
+  <script>
+    // Show initials if profile image missing
+    (function showInitialsIfNoImage(){
+      const img = document.getElementById('profileImg');
+      const initials = document.getElementById('initials');
+      if(img && img.complete && img.naturalWidth === 0){
+        img.style.display = 'none';
+        initials.style.display = 'flex';
+      } else {
+        img.addEventListener('error', ()=>{ img.style.display='none'; initials.style.display='flex'; });
+      }
+    })();
+
+    // Simple IntersectionObserver fade-in for cards
+    (function fadeInOnScroll(){
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {threshold: 0.12});
+      document.querySelectorAll('[data-animate]').forEach(el => obs.observe(el));
+    })();
+  </script>
 </body>
 </html>
