@@ -6,28 +6,69 @@
   <title>Methri Vaishnavi — Portfolio</title>
   <meta name="description" content="Portfolio of Methri Vaishnavi — B.Tech CSE Student, Cybersecurity & AI/ML enthusiast" />
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--muted:#94a3b8;--accent:#7dd3fc;--glass:rgba(255,255,255,0.03)}
+    :root{
+      --bg:#fdfbfb;
+      --card:#ffffffc9;
+      --muted:#475569;
+      --accent:#60a5fa;
+      --glass:rgba(255,255,255,0.7)
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#071021 0%, #051027 100%);color:#e6eef6;line-height:1.5}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+      background:linear-gradient(135deg,#fefeff,#e3f2fd,#fce7f3);
+      color:#1e293b;
+      line-height:1.6;
+      overflow-x:hidden;
+    }
     .container{max-width:1000px;margin:36px auto;padding:24px}
     header{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:12px}
-    .avatar{width:68px;height:68px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;color:#04263b;font-weight:700;font-size:22px}
-    nav a{color:var(--muted);text-decoration:none;margin-left:14px}
+    .avatar{
+      width:68px;height:68px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),#93c5fd);
+      display:flex;align-items:center;justify-content:center;
+      color:white;font-weight:700;font-size:22px;
+    }
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-weight:500}
+    nav a:hover{color:#2563eb}
     .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:28px;align-items:center}
-    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
-    h1{margin:0;font-size:28px}
-    h2{margin:6px 0 16px;font-size:18px}
+    .card{
+      background:var(--card);
+      padding:20px;border-radius:12px;
+      box-shadow:0 4px 14px rgba(0,0,0,0.08);
+      border:1px solid rgba(0,0,0,0.05);
+      backdrop-filter:blur(12px);
+    }
+    h1{margin:0;font-size:28px;color:#1e3a8a}
+    h2{margin:6px 0 16px;font-size:18px;color:#2563eb}
     p.lead{color:var(--muted);margin:12px 0}
     .cta{display:flex;gap:10px;margin-top:16px}
-    .btn{padding:10px 14px;border-radius:10px;background:var(--accent);color:#04263b;font-weight:600;text-decoration:none}
-    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .btn{
+      padding:10px 14px;border-radius:10px;
+      background:var(--accent);color:white;
+      font-weight:600;text-decoration:none;
+    }
+    .btn-outline{
+      background:transparent;border:1px solid #94a3b8;
+      color:#475569;
+    }
     .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{background:var(--glass);padding:8px 10px;border-radius:8px;color:var(--muted);font-size:13px}
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    .project{padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.02)}
+    .chip{
+      background:var(--glass);
+      padding:8px 10px;border-radius:8px;
+      color:#475569;font-size:13px;
+    }
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+    .project{
+      padding:14px;border-radius:10px;
+      background:linear-gradient(180deg,#ffffff,#f0f9ff);
+      border:1px solid #e2e8f0;
+      box-shadow:0 3px 10px rgba(0,0,0,0.05);
+    }
     .meta{color:var(--muted);font-size:13px}
-    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
+    footer{margin-top:28px;text-align:center;color:#64748b;font-size:13px}
     .two-col{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     ul{padding-left:18px}
     @media(max-width:880px){
@@ -51,6 +92,7 @@
       <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#internship">Internship</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -60,15 +102,17 @@
       <div class="card">
         <h1>Hi — I'm Methri Vaishnavi</h1>
         <h2>3rd Year B.Tech Student • Software Developer • Cybersecurity & AI/ML Enthusiast</h2>
-        <p class="lead">Motivated and detail-oriented Computer Science student with hands-on experience in machine learning, web development, and cybersecurity. Currently pursuing B.Tech (2024–2027) at Malla Reddy Engineering College for Women.</p>
+        <p class="lead">
+          Motivated and detail-oriented Computer Science student with hands-on experience in machine learning, web development, and cybersecurity. Currently pursuing B.Tech (2024–2027) at Malla Reddy Engineering College for Women.
+        </p>
         <div class="cta">
           <a class="btn" href="resume.pdf" download>Download Resume</a>
           <a class="btn-outline" href="https://github.com/Vaishnavi-methri" target="_blank">View GitHub</a>
         </div>
 
-        <hr style="margin:18px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+        <hr style="margin:18px 0;border:none;border-top:1px solid #e2e8f0" />
         <div id="skills">
-          <strong style="color:var(--muted)">Top Skills</strong>
+          <strong style="color:#2563eb">Top Skills</strong>
           <div class="skills" style="margin-top:8px">
             <div class="chip">Python</div>
             <div class="chip">Java</div>
@@ -113,40 +157,48 @@
     <section id="about" style="margin-top:20px">
       <div class="card">
         <h2>About Me</h2>
-        <p style="color:var(--muted)">I am a passionate Computer Science student focused on building software that solves real problems. I enjoy working on machine learning projects, full-stack web applications, and cybersecurity tasks. I aim to secure internships to gain hands-on experience and contribute to meaningful projects.</p>
+        <p style="color:var(--muted)">
+          I am a passionate Computer Science student focused on building software that solves real problems. I enjoy working on machine learning projects, full-stack web applications, and cybersecurity tasks. I aim to secure internships to gain hands-on experience and contribute to meaningful projects.
+        </p>
       </div>
     </section>
 
     <section id="projects" style="margin-top:18px">
       <h2 style="margin-bottom:12px">Projects</h2>
       <div class="projects">
-        <div class="project card">
+        <div class="project">
           <h3>Fake News Detection</h3>
           <div class="meta">Python • Machine Learning • Accuracy: 90%</div>
-          <p style="color:var(--muted);margin-top:8px">Built a classifier to detect fake news using NLP preprocessing and machine learning models. Achieved ~90% accuracy on test data.</p>
-          <a href="https://github.com/Vaishnavi-methri" target="_blank" class="meta">View repo</a>
+          <p>Built a classifier to detect fake news using NLP preprocessing and machine learning models. Achieved ~90% accuracy.</p>
         </div>
 
-        <div class="project card">
+        <div class="project">
           <h3>Barcode Technology System</h3>
           <div class="meta">Python • Inventory Management</div>
-          <p style="color:var(--muted);margin-top:8px">Developed a system to generate and read barcodes for efficient inventory tracking and management.</p>
-          <a href="https://github.com/Vaishnavi-methri" target="_blank" class="meta">View repo</a>
+          <p>Developed a system to generate and read barcodes for efficient inventory tracking and management.</p>
         </div>
 
-        <div class="project card">
+        <div class="project">
           <h3>Predicting Coronary Heart Disease</h3>
           <div class="meta">LightGBM • Data Science</div>
-          <p style="color:var(--muted);margin-top:8px">Used LightGBM on medical datasets to predict heart disease risk, improving predictive performance with feature engineering.</p>
-          <a href="https://github.com/Vaishnavi-methri" target="_blank" class="meta">View repo</a>
+          <p>Used LightGBM on medical datasets to predict heart disease risk with improved accuracy using feature engineering.</p>
         </div>
 
-        <div class="project card">
+        <div class="project">
           <h3>Gesture-Based HCI</h3>
           <div class="meta">OpenCV • Accessibility</div>
-          <p style="color:var(--muted);margin-top:8px">Created a system controlled by hand gestures to interact with applications—useful for accessibility and touch-free control.</p>
-          <a href="https://github.com/Vaishnavi-methri" target="_blank" class="meta">View repo</a>
+          <p>Created a system controlled by hand gestures to interact with applications—useful for accessibility and touch-free control.</p>
         </div>
+      </div>
+    </section>
+
+    <!-- NEW INTERNSHIP SECTION -->
+    <section id="internship" style="margin-top:18px">
+      <div class="card">
+        <h2>Internship</h2>
+        <p><strong>AICTE Virtual Internship – Artificial Intelligence & Data Analytics (Green Skills)</strong></p>
+        <p>25th Aug – 25th Sept 2025 | Organized by AICTE, Shell India & Edunet Foundation under the Skills4Future Program.</p>
+        <p style="color:var(--muted)">Developed real-world AI/ML and analytics skills while contributing to projects promoting sustainable technology practices.</p>
       </div>
     </section>
 
@@ -159,14 +211,14 @@
             <li>Web: HTML, CSS, JavaScript, React, Node.js</li>
             <li>ML & Data: Pandas, scikit-learn, LightGBM</li>
             <li>Computer Vision: OpenCV</li>
-            <li>Cybersecurity Basics: Packet Tracer, Network Basics</li>
+            <li>Cybersecurity: Packet Tracer, Network Basics</li>
           </ul>
         </div>
         <div>
           <h3>Strengths</h3>
           <ul style="color:var(--muted)">
             <li>Self-motivated and eager to learn</li>
-            <li>Adaptability and strong teamwork skills</li>
+            <li>Adaptability and teamwork</li>
             <li>Creative problem-solving</li>
           </ul>
         </div>
@@ -176,20 +228,11 @@
     <section id="contact" style="margin-top:18px">
       <div class="card">
         <h2>Contact</h2>
-        <p style="color:var(--muted)">I'm open to internship opportunities and collaboration. Reach out via email or LinkedIn.</p>
-        <p style="margin-top:8px"><strong>Email:</strong> <a href="mailto:vaishnavimethri@gmail.com">vaishnavimethri@gmail.com</a></p>
+        <p>I'm open to internship opportunities and collaborations. Reach out via email or LinkedIn.</p>
+        <p><strong>Email:</strong> <a href="mailto:vaishnavimethri@gmail.com">vaishnavimethri@gmail.com</a></p>
         <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/methri-vaishnavi" target="_blank">linkedin.com/in/methri-vaishnavi</a></p>
       </div>
     </section>
-
-    <footer>
-      Built with ❤️ • © Methri Vaishnavi • <span style="color:var(--muted)">2025</span>
-    </footer>
   </div>
-
-  <script>
-    // small JS to enhance mobile nav in future (placeholder)
-    // you can expand this for a hamburger menu if desired
-  </script>
 </body>
 </html>
